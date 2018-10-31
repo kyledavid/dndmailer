@@ -1,0 +1,33 @@
+{
+  "name": "dndmailer",
+  "version": "1.0.0",
+  "description": "API for emailing d&d notifications",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "npm run build && node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyledavid/dndmailer.git"
+  },
+  "keywords": [
+    "dnd"
+  ],
+  "author": "KN Webwork",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyledavid/dndmailer/issues"
+  },
+  "homepage": "https://github.com/kyledavid/dndmailer#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^2.6.2"
+  }
+}
