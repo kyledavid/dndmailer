@@ -10,12 +10,12 @@ let router = express.Router()
 router.route('/rsvp')
 .post([rsvpMware.checkValues, rsvpMware.checkTime, rsvpMware.checkExisting], (req, res) => {
   // Saves RSVP to db
-  // Calls email function
+  // Calls email function that rsvp has been started
 })
 
 router.route('/confirm')
 .post([confirmMware.checkValues, confirmMware.checkTime, confirmMware.checkExisting], (req,res) => {
-  // Saves RSVP
+  // Saves confirmation
   // Calls function to check if game threshhold has been reached, will then send email
 })
 
