@@ -1,9 +1,10 @@
 import nodemailer from 'nodemailer'
 import express from 'express'
 import bodyParser from 'body-parser'
-require('dotenv').config()
+import dotenv from 'dotenv'
 
 const app = express()
+dotenv.config()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
