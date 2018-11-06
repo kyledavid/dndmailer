@@ -15,9 +15,14 @@ app.use(bodyParser.json())
 // GAME ON!
 app.post('/confirm', (req, res) => {
   const names = ['kyle', 'tim', 'neal', 'chris', 'nick']
+  const text = names.join(',') + 'are down to game tonight'
   const output = `
-    <h3>Bros confirmed for today's game...</h3>
-    <p>${names.forEach(name => `name`)}</p>
+    <div style="background-color: aqua; padding: 50px 50px 100px 50px;">
+      <div style="background-color: #fff;"">
+        <h3 style="font-size: 22px; color: aqua; padding: 20px;">These bros confirmed for today's game...</h3>
+        <p style="font-size: 18px; color: #22222a; padding: 20px;">${names.join(',')}</p>
+      </div>
+    </div>
   `
 
   const transporter = nodemailer.createTransport({
@@ -32,7 +37,8 @@ app.post('/confirm', (req, res) => {
     from: 'knwebwork@gmail.com',
     to: 'kyledavid022@gmail.com',
     subject: 'Another User has confirmed',
-    text: output
+    text: text,
+    html: output
   }
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -44,6 +50,7 @@ app.post('/confirm', (req, res) => {
 
     res.render('contact', {msg:'Email has been sent'});
   })
+  res.status(200).send('Mail Sent')
 })
 
 app.listen(6000, () => console.log('Mail Server Active'))
