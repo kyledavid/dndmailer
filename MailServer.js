@@ -37,6 +37,7 @@ app.post('/confirm', (req, res) => {
   const names = ['kyle', 'tim', 'neal', 'chris', 'nick']
   const text = names.join(',') + 'are down to game tonight'
   const output = rsvp(names, playerDeficit)
+  console.log(process.env.MAIL_NAME + process.env.MAIL_PASS)
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
