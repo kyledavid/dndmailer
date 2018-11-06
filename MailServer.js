@@ -3,6 +3,10 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 
+const playerDeficit = 2;
+import {rsvp} from './mail_templates'
+
+
 const app = express()
 dotenv.config()
 
@@ -15,10 +19,8 @@ app.use(bodyParser.json())
 // GAME ON!
 app.post('/confirm', (req, res) => {
   const names = ['kyle', 'tim', 'neal', 'chris', 'nick']
-  const output = `
-    <h3>Bros confirmed for today's game...</h3>
-    <p>${names.forEach(name => `name`)}</p>
-  `
+  const text = names.join(',') + 'are down to game tonight'
+  const output = rsvp(names, playerDeficit)
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -32,7 +34,8 @@ app.post('/confirm', (req, res) => {
     from: 'knwebwork@gmail.com',
     to: 'kyledavid022@gmail.com',
     subject: 'Another User has confirmed',
-    text: output
+    text: text,
+    html: output
   }
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -44,6 +47,7 @@ app.post('/confirm', (req, res) => {
 
     res.render('contact', {msg:'Email has been sent'});
   })
+  res.status(200).send('Mail Sent')
 })
 
 app.listen(6000, () => console.log('Mail Server Active'))
