@@ -4,7 +4,7 @@ export const rsvp = (names, playerDeficit) => `
       <h3 style="font-size: 22px; color: aqua; padding: 20px;">These bros confirmed for today's sesh...</h3>
       <p style="font-size: 18px; color: #22222a; padding: 20px;">${names.join(',')}</p>
       <p style="font-size: 18px; color: #22222a; padding: 20px;">We need ${playerDeficit} more players...are you in?
-      <form method="post" action="localhost:6000/confirm">
+      <form method="post" action="https://enigmatic-peak-91949.herokuapp.com/confirm">
         <input type="submit" value="Yeah Dawg" />
       </form></p>
     </div>
