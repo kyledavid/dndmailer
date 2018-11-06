@@ -52,7 +52,12 @@ app.post('/confirm', (req, res) => {
     to: 'kyledavid022@gmail.com',
     subject: 'Another User has confirmed',
     text: text,
-    html: output
+    html: output,
+    attachments: [{
+        filename: 'dnd-logo.png',
+        path: './img/dnd-logo.png',
+        cid: 'dndlogo'
+    }]
   }
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -67,4 +72,4 @@ app.post('/confirm', (req, res) => {
   res.status(200).send('Mail Sent')
 })
 
-app.listen(port, () => console.log('Mail Server Active'))
+app.listen(port, () => console.log('Mail Server Active on port:' + port))
