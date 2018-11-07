@@ -7,7 +7,6 @@ const playerDeficit = 2;
 const port = process.env.PORT || 6000
 import {rsvp} from './mail_templates'
 
-
 const app = express()
 dotenv.config()
 
