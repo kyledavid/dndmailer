@@ -80,6 +80,10 @@ export const rsvp = (names, playerDeficit) => `
         padding: 10px;
         box-shadow: 5px 5px 0 #6D3B40;
       }
+      .yeah-dawg:hover {
+        background-color: #6d3b40;
+        color: yellow!important;
+      }
       img {
         max-width: 100%;
       }
@@ -93,7 +97,7 @@ export const rsvp = (names, playerDeficit) => `
         </header>
         <div class="main">
           <div class="party">
-            ${getParty(['kyle', 'tim'])}
+            ${getParty(names)}
           </div>
           <h2 class="needed">
             ${playerDeficit}
