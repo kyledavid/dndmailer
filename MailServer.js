@@ -48,8 +48,8 @@ app.post('/confirm', (req, res) => {
 
   const mailOptions = {
     from: 'knwebwork@gmail.com',
-    to: 'kyledavid022@gmail.com',
-    subject: 'Another User has confirmed',
+    to: 'vivalaibanez@gmail.com, kyledavid022@gmail.com',
+    subject: 'Another Soul Has Joined the Adventure',
     text: text,
     html: output,
     attachments: [{
