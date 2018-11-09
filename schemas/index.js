@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-export const tardManSchema = new Schema({
+export const TardyManSchema = new Schema({
   name: String,
   email: String
 })

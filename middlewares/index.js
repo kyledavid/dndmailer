@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
 
-import {TardManSchema, ConfirmedManSchema, RSVPManSchema} from '../schemas'
+import {TardyManSchema, ConfirmedManSchema, RSVPManSchema} from '../schemas'
 const db = mongoose.connect(`mongodb://${process.env.MONGO_NAME}:${process.env.MONGO_PASS}@ds157493.mlab.com:57493/dnd-mailer`)
 
 export const rsvpMware = {

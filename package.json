@@ -8,6 +8,7 @@
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "postinstall": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./img --copy-files",
     "start": "npm run build && node dist/app.js && node dist/MailServer.js",
+    "utils": "npm run build && node dist/util/",
     "mail": "npm run build && node dist/MailServer.js"
   },
   "repository": {

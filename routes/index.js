@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import {rsvpMware, confirmMware} from '../middlewares'
-import {TardMan, RSVPMan, ConfirmatingMan} from '../schemas'
+import {TardyMan, RSVPMan, ConfirmingMan} from '../schemas'
 import dotenv from 'dotenv'
 
 dotenv.config()

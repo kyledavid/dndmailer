@@ -2,12 +2,15 @@ import nodemailer from 'nodemailer'
 import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
-
-const playerDeficit = 2;
-const port = process.env.PORT || 6000
 import {rsvp} from './mail_templates'
+import emails from './util/emails.json'
 
 const app = express()
+const playerDeficit = 2;
+const port = process.env.PORT || 6000
+const addresses = emails.address.join(',')
+
+console.log(addresses)
 dotenv.config()
 
 var allowCrossDomain = function(req, res, next) {
@@ -23,6 +26,7 @@ var allowCrossDomain = function(req, res, next) {
       next();
     }
 }
+
 
 app.use(allowCrossDomain)
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -48,7 +52,7 @@ app.post('/confirm', (req, res) => {
 
   const mailOptions = {
     from: 'knwebwork@gmail.com',
-    to: 'vivalaibanez@gmail.com, kyledavid022@gmail.com',
+    to: addresses,
     subject: 'Another Soul Has Joined the Adventure',
     text: text,
     html: output,
