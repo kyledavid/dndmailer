@@ -16,3 +16,7 @@ export const ConfirmedManSchema = new Schema({
   name: String,
   email: String
 })
+
+export const GamesOnSchema = new Schema({
+  gamesOn: Boolean
+})
